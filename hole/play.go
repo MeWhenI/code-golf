@@ -119,7 +119,8 @@ func Play(ctx context.Context, holeID, langID, code string) (score Scorecard) {
 			panic(err)
 		}
 
-		cmd.Args = []string{"/usr/bin/defasm", "--size-out=3", "-r"}
+		cmd.Args = []string{"/usr/bin/defasm", "--size-out=3",
+			"-l", "/lib/ld-musl-x86_64.so.1", "-r"}
 		cmd.ExtraFiles = []*os.File{asmBytesWrite}
 	case "bash":
 		cmd.Args = []string{"/usr/bin/bash", "-s", "-"}

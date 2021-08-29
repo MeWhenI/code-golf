@@ -103,7 +103,6 @@ live:
 	    --publish      443:1443           \
 	    --read-only                       \
 	    --restart      always             \
-	    --ulimit       core=-1            \
 	    --volume       certs:/certs       \
 	    codegolf/code-golf &&             \
 	    docker system prune -f"

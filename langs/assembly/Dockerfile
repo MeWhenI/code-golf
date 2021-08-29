@@ -1,10 +1,10 @@
-FROM node:16.6.2-alpine3.14 as builder
+FROM node:16.8.0-alpine3.14 as builder
 
-ENV VERSION=2.0.0
+ENV VERSION=2.1.1
 
 RUN mkdir /empty
 
-RUN npm install -g @defasm/core@$VERSION esbuild pkg
+RUN npm install -g @defasm/cli@1.0.1 @defasm/core@$VERSION esbuild pkg
 
 # Bundle defasm so it can be pkg'd
 RUN esbuild --bundle --outfile=defasm.js --platform=node /usr/local/bin/defasm \
